@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int globalsum=-100000000;
+        int localsum=0;
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            localsum=max(nums[i],nums[i]+localsum);
+            if(localsum>globalsum)globalsum=localsum;
+        }
+        return globalsum;
+    }
+};
