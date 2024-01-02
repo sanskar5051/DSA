@@ -1,0 +1,18 @@
+class Solution:
+    def findMatrix(self, nums: List[int]) -> List[List[int]]:
+        hashmap={}
+        answer=[]
+        k=0
+        while(len(hashmap) != len(nums)):
+            l=[]
+            for i,n in enumerate(nums):
+                if i in hashmap:
+                    continue
+                if n in l:
+                    continue
+                l.append(n)
+                hashmap[i]=n
+            answer.append(l)
+        return answer 
+                
+        
