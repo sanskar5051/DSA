@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int numberOfBeams(vector<string>& bank) {
+        int bean=0;
+        int n=bank.size();
+        int no=0;
+        for(int i=0;i<n;i++){
+            int nol=0;
+            int str=bank[i].length();
+            for(int j=0;j<str;j++){
+                if(bank[i][j]=='1')
+                nol++;
+            }
+            if(nol==0)
+            continue;
+            else{
+                bean=bean+no*nol;
+                no=nol;
+            }
+
+        }
+        return bean;
+    }
+};
