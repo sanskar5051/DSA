@@ -1,0 +1,20 @@
+class Solution {
+public:
+
+    bool answer(TreeNode* left,TreeNode* right){
+         if(left==NULL && right==NULL)return true;
+        else if(left==NULL || right==NULL)return false;
+        else if(left->val==right->val) {
+        return (answer(left->right,right->left) && answer(left->left,right->right));
+    }
+    else return false;
+    }
+    bool isSymmetric(TreeNode* root) {
+        TreeNode* left;
+        TreeNode* right;
+        left=root->left;
+        right=root->right;
+        return answer(left,right);
+
+        
+    }
