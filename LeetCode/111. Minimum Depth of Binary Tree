@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int sol(TreeNode* root){
+        if(root==NULL)
+        return 1e9;
+        if(root->left==NULL && root->right==NULL)
+        return 1;
+        return min(1+sol(root->left),1+sol(root->right));
+    }
+    int minDepth(TreeNode* root) {
+        int ans=sol(root);
+        if(ans==1e9)
+        return 0;
+        else
+        return ans;
+    }
+};
