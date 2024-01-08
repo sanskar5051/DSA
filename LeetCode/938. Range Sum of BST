@@ -1,0 +1,21 @@
+class Solution {
+public:
+
+    int recursion(TreeNode* root,int low,int high){
+        if(root==NULL)
+        return 0;
+        if(root->val>=low && root->val<=high){
+            return root->val + recursion(root->left,low,high) + recursion(root->right,low,high);
+        }
+        else if(root->val<low)
+        return recursion(root->right,low,high);
+        else
+        return recursion(root->left,low,high);
+    }
+    int rangeSumBST(TreeNode* root, int low, int high) {
+      int sum=recursion(root,low,high); 
+      return sum;
+
+        
+    }
+};
