@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int ans=0;
+    void maxvalf(TreeNode* root, int maxval,int minval){
+        if(!root)
+        return ;
+        ans=max(ans,max(abs(minval - root->val),abs(maxval - root->val)));
+        minval=min(minval,root->val);
+        maxval=max(maxval,root->val);
+        maxvalf(root->left,maxval,minval);
+        maxvalf(root->right,maxval,minval);
+    }
+    int maxAncestorDiff(TreeNode* root) {
+       if(root==NULL)
+       return 0;
+       int minval=root->val;
+       int maxval=root->val;
+
+        maxvalf(root,maxval,minval);
+        return ans;
+
+    }
+
+
+};
