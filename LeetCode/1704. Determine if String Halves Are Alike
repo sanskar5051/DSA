@@ -1,0 +1,14 @@
+class Solution:
+    def halvesAreAlike(self, s: str) -> bool:
+        n=int(len(s)/2)
+        l=['a','e','i','o','u','A','E','I','O','U']
+        c1=0
+        c2=0
+        for i in range(n):
+            if(s[i] in l):
+                c1=c1+1
+        for i in range(n,2*n):
+            if(s[i] in l):
+                c2=c2+1
+        return c1==c2        
+        
