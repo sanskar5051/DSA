@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool correct(int i){
+        while(i>=10){
+            if(i%10 == ((i/10)%10) +1)
+            i=i/10;
+            else{
+                return false;
+            }
+
+
+        }
+        return true;;
+    }
+    vector<int> sequentialDigits(int low, int high) {
+        vector<int> sol;
+        for(int i=low;i<high;i++){
+            if(correct(i)){
+                sol.push_back(i);
+            }
+        }
+        return sol;
+        
+    }
+};
